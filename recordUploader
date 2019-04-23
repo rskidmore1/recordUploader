@@ -1,0 +1,126 @@
+#!/bin/bash
+
+
+
+
+file="/home/emulator/longplaces.txt"
+COUNTER=0
+#sed -n '52p' longplaces.txt
+start=0 
+
+end=723
+ while [  $COUNTER -lt $end ];
+do 
+
+  xdotool windowactivate 27263156
+  
+  
+
+  sleep 1
+  
+  #New place
+  xdotool mousemove 130 210
+
+  sleep 1
+  xdotool click 1
+
+
+
+  #mouse move section. Select se
+  sleep 1
+  xdotool mousemove 1130 180 
+  sleep 1
+  
+  xdotool click 1
+  sleep 1 
+  xdotool key ctrl+a
+
+
+  sleep 1
+
+
+  
+  echo 'first counter' 
+  echo $COUNTER 
+  let COUNTER=COUNTER+1
+  sed -n $COUNTER'p' longplaces.txt | xclip -selection clipboard
+  var= sed -n $COUNTER'p' longplaces.txt 
+  echo $var
+  sleep 2
+  xdotool type "$(xclip -o -selection clipboard)"
+  sleep 15
+
+  #xdotool click 1 
+ 
+  sleep 1
+  
+  xdotool mousemove 1130 220
+  sleep 2 
+  xdotool click 1 
+
+
+
+  #name section 
+  sleep 0.3
+  xdotool mousemove 200 250 
+  sleep 0.5
+  xdotool click 1
+
+  sleep 1
+  xdotool key ctrl+a
+
+  echo 'Second counter' 
+  echo $COUNTER
+  let COUNTER=COUNTER+1
+  sed -n $COUNTER'p' longplaces.txt | xclip -selection clipboard
+  var2= sed -n $COUNTER'p' longplaces.txt
+  echo $var2
+  xdotool type "$(xclip -o -selection clipboard)"
+  sleep 7
+
+
+
+
+
+
+
+
+  echo 'third counter' 
+
+
+
+   
+  echo $COUNTER 
+  let COUNTER=COUNTER+1
+
+  xdotool mousemove 500 250
+  sleep 1
+  xdotool click 1 
+
+
+  sleep 1
+  xdotool mousemove 500 330
+  sleep 2
+  xdotool click 1 
+
+  
+  #sed -n $COUNTER'p' longplaces.txt | xclip -selection clipboard
+  var3= sed -n $COUNTER'p' longplaces.txt
+  #xdotool mousemove 500 325
+  sleep 1
+  echo $var3
+  
+
+  xdotool mousemove 1200 690
+  sleep 3
+  
+  xdotool click 1 
+  sleep 1
+  echo ''
+  echo ''
+ 
+
+
+done 
+
+
